@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Plan Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lesson Plan Generator</h1>
+
+    <form method="post" action="/generate_lesson_plan">
+        <label for="user_prompt">Enter your lesson plan prompt:</label><br>
+        <textarea id="user_prompt" name="user_prompt" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Generate Lesson Plan">
+    </form>
+
+    {% if user_prompt %}
+        <h2>Your Lesson Plan Prompt:</h2>
+        <p>{{ user_prompt }}</p>
+        
+        <h2>Generated Lesson Plan:</h2>
+        <p>{{ generated_plan }}</p>
+    {% endif %}
+</body>
+</html>
